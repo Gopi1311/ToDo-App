@@ -1,23 +1,16 @@
 import React, { useState,useEffect } from "react";
 import { Form, Button, Container, Card, ListGroup, Row, Col, Badge } from "react-bootstrap";
 import '../styleSheet/TodoStyleSheet.css';
+import { getTasks, saveTasks } from "../utils/Storage";
 
 const Todo = () => {
-  const [tasks, setTasks] = useState(()=>{
-    const save=localStorage.getItem("tasks");
-    try {
-      return save?JSON.parse(save): [];
-    } catch (error) {
-      console.error("Error parsing tasks from localStorage:", error);
-      return [];
-    }
-  });
+  const [tasks, setTasks] = useState(getTasks);
   const [newTask, setNewTask] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editingTask, setEditingTask] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    saveTasks(tasks);
   }, [tasks]);
 
   const handleAddTask = (e) => {
