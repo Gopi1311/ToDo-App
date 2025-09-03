@@ -1,0 +1,38 @@
+
+.todo-bg {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.task-add {
+  background: linear-gradient(45deg, #43cea2, #185a9d);
+  border: none;
+}
+
+.t:hover {
+  background: linear-gradient(45deg, #185a9d, #43cea2);
+}
+
+
+button.btn-danger {
+  background: linear-gradient(45deg, #f95353, #b91d1d);
+  border: none;
+}
+
+button.btn-danger:hover {
+  background: linear-gradient(45deg, #380d0d, #f95353, black);
+}
+
+
+

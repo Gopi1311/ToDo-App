@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Card, ListGroup, Row, Col, Badge } from "react-bootstrap";
+import '../styleSheet/TodoStyleSheet.css';
 
 const Todo = () => {
   const [tasks, setTasks] = useState([]);
@@ -7,6 +8,7 @@ const Todo = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editingTask, setEditingTask] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
+
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -48,8 +50,8 @@ const Todo = () => {
   const completedCount = tasks.filter(task => task.completed).length;
 
   return (
-    <Container className="d-flex justify-content-center align-items-center min-vh-100 py-4">
-      <Card className="shadow-lg p-4 w-100" style={{ maxWidth: "600px" }}>
+    <Container className="d-flex justify-content-center align-items-center min-vh-100 min-vw-100 py-4 todo-bg">
+      <Card className="shadow-lg p-4 w-100 todo-card" style={{ maxWidth: "600px" }}>
         <h2 className="text-center text-primary mb-3">
           <i className="bi bi-check2-circle me-2"></i>Todo List
         </h2>
@@ -82,7 +84,7 @@ const Todo = () => {
               />
             </Col>
             <Col xs={3}>
-              <Button type="submit" variant="primary" className="w-100 py-2">
+              <Button type="submit" variant="primary" className="task-add w-100 py-2">
                 <i className="bi bi-plus-lg me-1"></i> Add
               </Button>
             </Col>
@@ -121,19 +123,19 @@ const Todo = () => {
                 </div>
                 <div className="d-flex gap-2">
                   <Button
-                    variant="outline-primary"
+                    variant="primary"
                     size="sm"
                     onClick={() => startEdit(index)}
                     disabled={task.completed}
-                  >
-                    <i className="bi bi-pencil-fill"></i>
+                  >Edit 
+                    <i className="bi bi-pencil-fill ms-1"></i>
                   </Button>
                   <Button
-                    variant="outline-danger"
+                    variant="danger"
                     size="sm"
                     onClick={() => deleteTask(index)}
-                  >
-                    <i className="bi bi-trash"></i>
+                  >Delete
+                    <i className="bi bi-trash ms-1"></i>
                   </Button>
                 </div>
               </ListGroup.Item>
